@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class movement : MonoBehaviour
+{
+    [SerializeField]
+    private float _speed;
+
+    [SerializeField] //permitir com que a variavel possa ser visualizada no inspector
+    private float _horizontalInput; //Criei uma variavel do tipo float chamada _horizontalInput
+
+    [SerializeField]
+    private float _verticalInput;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+          
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _horizontalInput = Input.GetAxis("Horizontal"); // a variavel _horizontalInput recebe um Input para receber o exido já presetado no unity horizontal
+        transform.Translate(new Vector3(_horizontalInput, 0 ,0 ) * _speed * Time.deltaTime); //Esse comando permite com que o vetor x possa ser atualizado 
+
+        _verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(new Vector3(0, _verticalInput,0) * _speed *Time.deltaTime);
+    }
+}
