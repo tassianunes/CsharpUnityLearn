@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class collector : MonoBehaviour
+{
+    //Esse comando permite com que o objeto player ao colidir com um gameObject o destrua fazendo-o sumir
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+}
